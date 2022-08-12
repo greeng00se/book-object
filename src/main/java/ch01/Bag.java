@@ -39,4 +39,8 @@ public class Bag {
     private void minusAmount(Long amount) {
         this.amount -= amount;
     }
+
+    public boolean hasTicket() {
+        return ticket != null;
+    }
 }
