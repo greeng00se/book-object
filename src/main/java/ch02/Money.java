@@ -1,6 +1,7 @@
 package ch02;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 /**
  * 금액
@@ -41,5 +42,22 @@ public class Money {
 
     public boolean isGreaterThanOrEqual(Money other) {
         return amount.compareTo(other.amount) >= 0;
+    }
+
+    public String getAmount() {
+        return amount.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Money money = (Money) o;
+        return Objects.equals(amount, money.amount);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(amount);
     }
 }
