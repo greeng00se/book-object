@@ -25,6 +25,12 @@ public class Movie {
     }
 
     public Money calculateMovieFee(Screening screening) {
+        /**
+         * 할인 정보가 없다면 기본 값을 반환
+         */
+        if (discountPolicy == null) {
+            return fee;
+        }
         return fee.minus(discountPolicy.calculateDiscountAmount(screening));
     }
 }
