@@ -1,7 +1,5 @@
-import ch01.Audience;
-import ch01.Bag;
-import ch01.Invitation;
-import ch01.Ticket;
+package ch01;
+
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
