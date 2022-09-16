@@ -13,4 +13,8 @@ public class Audience {
     public Bag getBag() {
         return bag;
     }
+
+    public Long setTicket(Ticket ticket) {
+        return bag.setTicket(ticket);
+    }
 }
