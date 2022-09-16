@@ -14,11 +14,10 @@ public class Event {
         this.duration = duration;
     }
 
-    public boolean isSatisifed(RecurringSchedule schedule) {
+    public boolean isSatisfied(RecurringSchedule schedule) {
         if (from.getDayOfWeek() != schedule.getDayOfWeek() ||
                 !from.toLocalDate().equals(schedule.getFrom()) ||
                 !duration.equals(schedule.getDuration())) {
-            reschedule(schedule);
             return false;
         }
 
