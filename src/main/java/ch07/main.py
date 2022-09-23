@@ -1,13 +1,14 @@
 import sys
-from Employee import *
+from HourlyEmployee import *
+from SalariedEmployee import *
 
 employees = [
-    Employee("직원A", 400, False, 0),
-    Employee("직원B", 300, False, 0),
-    Employee("직원C", 250, False, 0),
-    Employee("알바D", 1, True, 120),
-    Employee("알바E", 1, True, 120),
-    Employee("알바F", 1.5, True, 120),
+    SalariedEmployee("직원A", 400),
+    SalariedEmployee("직원B", 300),
+    SalariedEmployee("직원C", 250),
+    HourlyEmployee("알바D", 1, 120),
+    HourlyEmployee("알바E", 1, 120),
+    HourlyEmployee("알바F", 1.5, 120),
 ]
 
 def getTaxRate():
