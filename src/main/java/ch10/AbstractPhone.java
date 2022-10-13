@@ -7,6 +7,7 @@ import java.util.List;
 
 public abstract class AbstractPhone {
     private List<Call> calls = new ArrayList<>();
+
     public Money calculateFee() {
         Money result = Money.ZERO;
 

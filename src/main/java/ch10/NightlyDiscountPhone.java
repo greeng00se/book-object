@@ -4,28 +4,26 @@ import ch02.Money;
 
 import java.time.Duration;
 
-public class NightlyDiscountPhone extends Phone {
+public class NightlyDiscountPhone extends AbstractPhone {
 
     private static final int LATE_NIGHT_HOUR = 22;
 
     private Money nightlyAmount;
+    private Money regularAmount;
+    private Duration seconds;
 
     public NightlyDiscountPhone(Money nightlyAmount, Money regularAmount, Duration seconds) {
-        super(regularAmount, seconds);
         this.nightlyAmount = nightlyAmount;
+        this.regularAmount = regularAmount;
+        this.seconds = seconds;
     }
 
-    public Money calculateFee() {
-        Money result = super.calculateFee();
-        Money nightlyFee = Money.ZERO;
-
-        for (Call call : getCalls()) {
-            if (call.getFrom().getHour() >= LATE_NIGHT_HOUR) {
-                nightlyFee = nightlyFee.plus(getAmount().minus(nightlyAmount)
-                        .times(call.getDuration().getSeconds() / getSeconds().getSeconds()));
-            }
+    @Override
+    protected Money calculateCallFee(Call call) {
+        if (call.getFrom().getHour() >= LATE_NIGHT_HOUR) {
+            return nightlyAmount.times(call.getDuration().getSeconds() / seconds.getSeconds());
         }
 
-        return result.minus(nightlyFee);
+        return regularAmount.times(call.getDuration().getSeconds() / seconds.getSeconds());
     }
 }
