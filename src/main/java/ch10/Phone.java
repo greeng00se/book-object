@@ -1,24 +1,22 @@
 package ch10;
 
 import ch02.Money;
-import lombok.Getter;
 
-import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
-@Getter
-public class Phone extends AbstractPhone {
+public abstract class Phone {
+    private List<Call> calls = new ArrayList<>();
 
-    private Money amount;
-    private Duration seconds;
+    public Money calculateFee() {
+        Money result = Money.ZERO;
 
-    public Phone(Money amount, Duration seconds) {
-        this.amount = amount;
-        this.seconds = seconds;
+        for (Call call : calls) {
+            result = result.plus(calculateCallFee(call));
+        }
+
+        return result;
     }
 
-    @Override
-    protected Money calculateCallFee(Call call) {
-        return amount.times(call.getDuration().getSeconds() / seconds.getSeconds());
-    }
+    abstract protected Money calculateCallFee(Call call);
 }
-
