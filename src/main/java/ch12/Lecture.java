@@ -15,7 +15,7 @@ public class Lecture {
         this.scores = scores;
     }
 
-    private double average() {
+    public double average() {
         return scores.stream()
                 .mapToInt(Integer::intValue)
                 .average()
