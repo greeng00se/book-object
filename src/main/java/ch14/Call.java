@@ -1,23 +1,30 @@
 package ch14;
 
-import lombok.Getter;
-
 import java.time.Duration;
 import java.time.LocalDateTime;
 
 public class Call {
 
-    @Getter
-    private LocalDateTime from;
-    private LocalDateTime to;
+    private DateTimeInterval interval;
 
-    public Call(LocalDateTime from, LocalDateTime to) {
-        this.from = from;
-        this.to = to;
+    public Call(DateTimeInterval interval) {
+        this.interval = interval;
     }
 
     public Duration getDuration() {
-        return Duration.between(from, to);
+        return interval.duration();
+    }
+
+    public LocalDateTime getFrom() {
+        return interval.getFrom();
+    }
+
+    public LocalDateTime getTo() {
+        return interval.getTo();
+    }
+
+    public DateTimeInterval getInterval() {
+        return interval;
     }
 }
 
