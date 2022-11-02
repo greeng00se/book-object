@@ -8,8 +8,8 @@ public class Call {
 
     private DateTimeInterval interval;
 
-    public Call(DateTimeInterval interval) {
-        this.interval = interval;
+    public Call(LocalDateTime from, LocalDateTime to) {
+        this.interval = DateTimeInterval.of(from, to);
     }
 
     public Duration getDuration() {
