@@ -1,6 +1,7 @@
 package ch14;
 
 import ch02.Money;
+import ch14.consistent.BasicRatePolicy;
 
 import java.time.Duration;
 import java.time.LocalTime;
@@ -14,7 +15,7 @@ public class TimeOfDayDiscountPolicy extends BasicRatePolicy {
     private List<Duration> durations = new ArrayList<>();
     private List<Money> amounts = new ArrayList<>();
 
-    @Override
+//    @Override
     protected Money calculateCallFee(Call call) {
         Money result = Money.ZERO;
         for (DateTimeInterval interval : call.splitByDay()) {
