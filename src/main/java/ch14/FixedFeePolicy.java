@@ -1,6 +1,7 @@
 package ch14;
 
 import ch02.Money;
+import ch14.consistent.BasicRatePolicy;
 
 import java.time.Duration;
 
@@ -13,7 +14,7 @@ public class FixedFeePolicy extends BasicRatePolicy {
         this.seconds = seconds;
     }
 
-    @Override
+//    @Override
     protected Money calculateCallFee(Call call) {
         return amount.times(call.getDuration().getSeconds() / seconds.getSeconds());
     }

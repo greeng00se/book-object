@@ -1,6 +1,9 @@
-package ch14;
+package ch14.consistent;
 
 import ch02.Money;
+import ch14.Call;
+import ch14.Phone;
+import ch14.RatePolicy;
 
 import java.util.ArrayList;
 import java.util.Arrays;

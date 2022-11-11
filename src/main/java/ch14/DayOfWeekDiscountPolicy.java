@@ -1,6 +1,7 @@
 package ch14;
 
 import ch02.Money;
+import ch14.consistent.BasicRatePolicy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,7 @@ public class DayOfWeekDiscountPolicy extends BasicRatePolicy {
         this.rules = rules;
     }
 
-    @Override
+//    @Override
     protected Money calculateCallFee(Call call) {
         Money result = Money.ZERO;
         for (DateTimeInterval interval : call.getInterval().splitByDay()) {

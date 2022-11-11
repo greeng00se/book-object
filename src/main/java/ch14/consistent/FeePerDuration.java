@@ -1,6 +1,7 @@
-package ch14;
+package ch14.consistent;
 
 import ch02.Money;
+import ch14.DateTimeInterval;
 
 import java.time.Duration;
 

@@ -1,6 +1,7 @@
-package ch14;
+package ch14.consistent;
 
 import ch02.Money;
+import ch14.Call;
 
 /**
  * 규칙을 구현하는 클래스
