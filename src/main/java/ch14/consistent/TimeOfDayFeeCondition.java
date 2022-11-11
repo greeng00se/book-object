@@ -11,6 +11,7 @@ import static java.util.stream.Collectors.toList;
 
 /**
  * 시간대별 정책
+ * 시작시간부터 종료시간까지
  */
 public class TimeOfDayFeeCondition implements FeeCondition {
     private LocalTime from;
